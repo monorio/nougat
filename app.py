@@ -84,6 +84,7 @@ async def predict(
     Returns:
         str: The extracted text in Markdown format.
     """
+    torch.cuda.set_device(6)
     pdfbin = file.file.read()
     pdf = pypdfium2.PdfDocument(pdfbin)
     md5 = hashlib.md5(pdfbin).hexdigest()
